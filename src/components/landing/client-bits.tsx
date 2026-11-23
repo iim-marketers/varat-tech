@@ -18,7 +18,11 @@ export function PageTracking() {
       loadMetaPixel(pixelId);
       window.fbq?.("track", "PageView");
     }
-    track("ViewContent", { value: site.price, currency: site.currency, content_name: site.plan });
+    track("ViewContent", {
+      value: site.price,
+      currency: site.currency,
+      content_name: site.plan,
+    });
   }, []);
   return null;
 }
@@ -40,13 +44,16 @@ export function SubscribeButton({
       onClick={() => openCheckout(source)}
       className={cn(
         "cta-gradient border-0 font-semibold text-white shadow-lg shadow-ember/30 transition hover:brightness-105 hover:shadow-ember/40",
-        size === "lg" ? "h-13 rounded-xl px-6 text-base" : "h-9 rounded-lg px-4 text-sm",
-        className
+        size === "lg"
+          ? "h-13 rounded-xl px-6 text-base"
+          : "h-9 rounded-lg px-4 text-sm",
+        className,
       )}
     >
       {children ?? (
         <>
-          Subscribe — ₹{site.price}/mo <Zap data-icon="inline-end" className="fill-current" />
+          Subscribe — ₹{site.price}/mo{" "}
+          <Zap data-icon="inline-end" className="fill-current" />
         </>
       )}
     </Button>
@@ -91,7 +98,9 @@ export function StickyBar() {
             ₹{site.price}
             <span className="text-sm font-medium text-blue-100/70">/mo</span>
           </p>
-          <p className="truncate text-[0.7rem] text-blue-100/70">Unlimited keys · 7-day refund</p>
+          <p className="truncate text-[0.7rem] text-blue-100/70">
+            Unlimited keys · 7-day refund
+          </p>
         </div>
         <WhatsAppLink
           source="sticky_bar"
@@ -108,5 +117,21 @@ export function StickyBar() {
         </button>
       </div>
     </div>
+  );
+}
+
+/** Text button that scrolls the page back to the top (smooth via html scroll-smooth). */
+export function BackToTop({ className }: { className?: string }) {
+  return (
+    <button
+      type="button"
+      onClick={() => window.scrollTo({ top: 0 })}
+      className={cn(
+        "text-xs font-medium cursor-pointer text-white transition-colors hover:text-brand-soft",
+        className,
+      )}
+    >
+      Back to top
+    </button>
   );
 }
