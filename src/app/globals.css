@@ -4,7 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Brand palette — navy & blue from the logo, saffron/ember from the app's CTAs */
 @theme {
   --color-ink: #081329;
   --color-ink-2: #0f2149;
@@ -158,7 +157,6 @@
 }
 
 @layer utilities {
-  /* Faint grid used on dark sections */
   .bg-grid {
     background-image:
       linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),

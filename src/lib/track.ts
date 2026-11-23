@@ -24,7 +24,6 @@ declare global {
   }
 }
 
-/** Sends an event to GTM (dataLayer) and, when a pixel is loaded, Meta Pixel. */
 export function track(event: TrackEvent, params: Params = {}, eventID?: string) {
   if (typeof window === "undefined") return;
   window.dataLayer = window.dataLayer ?? [];
@@ -34,7 +33,6 @@ export function track(event: TrackEvent, params: Params = {}, eventID?: string) 
 
 const PIXEL_KEY = "mdm_fb_pixel";
 
-/** Pixel ID from ?fb_pixel=, remembered for the session, else the env default. */
 export function resolvePixelId(): string | null {
   const valid = (v: string | null | undefined) => (v && /^\d{6,20}$/.test(v) ? v : null);
   const fromUrl = valid(new URLSearchParams(window.location.search).get("fb_pixel"));

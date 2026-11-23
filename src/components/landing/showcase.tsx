@@ -67,13 +67,13 @@ function Points({
   points: readonly string[];
 }) {
   return (
-    <div className="lg:pt-6">
+    <div className="text-center lg:pt-6 lg:text-left">
       <h3 className="text-2xl leading-tight font-bold text-white sm:text-3xl">
         {title}
       </h3>
-      <ul className="mt-6 grid gap-3.5">
+      <ul className="mx-auto mt-6 grid w-fit gap-3.5 lg:mx-0">
         {points.map((p) => (
-          <li key={p} className="flex gap-3 text-blue-100/85">
+          <li key={p} className="flex gap-3 text-left text-blue-100/85">
             <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-brand/25 text-brand-soft">
               <Check className="size-3.5" strokeWidth={3} />
             </span>

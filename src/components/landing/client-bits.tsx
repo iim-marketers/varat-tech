@@ -10,7 +10,6 @@ import { loadMetaPixel, resolvePixelId, track } from "@/lib/track";
 
 import { useCheckout } from "./checkout";
 
-/** Loads Meta Pixel (from ?fb_pixel= or env) and fires PageView + ViewContent. */
 export function PageTracking() {
   useEffect(() => {
     const pixelId = resolvePixelId();
@@ -120,7 +119,6 @@ export function StickyBar() {
   );
 }
 
-/** Text button that scrolls the page back to the top (smooth via html scroll-smooth). */
 export function BackToTop({ className }: { className?: string }) {
   return (
     <button
