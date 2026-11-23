@@ -318,7 +318,7 @@ export function Faq() {
             value={q}
             className="rounded-2xl bg-surface px-5 ring-1 ring-ink/5 not-last:border-b-0"
           >
-            <AccordionTrigger className="pt-5 font-heading text-base font-semibold text-ink hover:no-underline sm:text-lg">
+            <AccordionTrigger className="items-center pt-3 font-heading text-base font-semibold text-ink hover:no-underline sm:text-lg">
               {q}
             </AccordionTrigger>
             <AccordionContent className="pb-5 text-[0.95rem] leading-relaxed text-muted-foreground">
@@ -327,7 +327,7 @@ export function Faq() {
           </AccordionItem>
         ))}
       </Accordion>
-      <div className="mx-auto mt-8 flex max-w-3xl flex-col items-center justify-center gap-3 text-center sm:flex-row">
+      <div className="mx-auto mt-6 flex max-w-3xl flex-col items-center justify-center gap-3 text-center sm:flex-row">
         <p className="text-muted-foreground">Still have a question?</p>
         <WhatsAppLink
           source="faq"
