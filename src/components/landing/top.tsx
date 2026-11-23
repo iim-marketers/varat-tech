@@ -9,6 +9,7 @@ import {
   RotateCcw,
   ShieldCheck,
   Store,
+  TrendingUp,
   Tv,
   Zap,
 } from "lucide-react";
@@ -191,13 +192,19 @@ function HeroVisual() {
         className="absolute top-[8%] left-[6%] w-[52%] -rotate-[4deg] animate-float"
       />
 
-      <div className="absolute top-[0%] left-[-2%] animate-float rounded-2xl bg-white px-4 py-3 text-ink shadow-xl sm:left-[-6%]">
-        <p className="font-heading text-2xl leading-none font-bold text-green-600 sm:text-3xl">
-          99.8%
-        </p>
-        <p className="mt-1 text-[0.7rem] font-medium text-muted-foreground sm:text-xs">
-          EMI recovery rate
-        </p>
+      <div className="absolute right-[-2%] bottom-[0%] flex animate-float items-center gap-2 rounded-2xl bg-white/95 py-2.5 pr-4 pl-2.5 text-ink shadow-xl ring-1 shadow-black/30 ring-black/5 backdrop-blur sm:right-[-6%] sm:py-3 sm:pr-5 sm:pl-3">
+        <RecoveryRing value={99.8} />
+        <div className="leading-tight">
+          <p className="font-heading text-xl leading-none font-bold tracking-tight sm:text-2xl">
+            99.8
+            <span className="ml-0.5 text-base text-green-600 sm:text-lg">
+              %
+            </span>
+          </p>
+          <p className="text-[0.65rem] font-semibold tracking-wide text-muted-foreground uppercase sm:text-[0.7rem]">
+            EMI recovery rate
+          </p>
+        </div>
       </div>
 
       {/* <div className="absolute bottom-[14%] left-[-2%] flex animate-float-delayed items-center gap-2.5 rounded-xl bg-white/95 py-2 pr-4 pl-2 text-ink shadow-xl backdrop-blur sm:left-[-8%]">
@@ -225,6 +232,44 @@ function HeroVisual() {
           </p>
         </div>
       </div> */}
+    </div>
+  );
+}
+
+function RecoveryRing({ value }: { value: number }) {
+  const radius = 18;
+  const circumference = 2 * Math.PI * radius;
+  return (
+    <div className="relative grid size-11 shrink-0 place-items-center sm:size-12">
+      <svg
+        viewBox="0 0 44 44"
+        className="absolute inset-0 size-full -rotate-90"
+        aria-hidden
+      >
+        <circle
+          cx="22"
+          cy="22"
+          r={radius}
+          fill="none"
+          strokeWidth="4"
+          className="stroke-green-100"
+        />
+        <circle
+          cx="22"
+          cy="22"
+          r={radius}
+          fill="none"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeDasharray={circumference}
+          strokeDashoffset={circumference * (1 - value / 100)}
+          className="stroke-green-500"
+        />
+      </svg>
+      <TrendingUp
+        className="size-4 text-green-600 sm:size-4.5"
+        strokeWidth={2.5}
+      />
     </div>
   );
 }

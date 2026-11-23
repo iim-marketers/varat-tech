@@ -42,9 +42,9 @@ export function PainSolution() {
             {other.map((t) => (
               <li
                 key={t}
-                className="flex gap-3 text-[0.95rem] leading-snug text-ink/80"
+                className="flex gap-2 text-[0.95rem] leading-snug text-ink/80"
               >
-                <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-red-100 text-red-600">
+                <span className="grid size-5 shrink-0 place-items-center rounded-full bg-red-100 text-red-600">
                   <X className="size-3.5" strokeWidth={3} />
                 </span>
                 {t}
@@ -79,9 +79,9 @@ export function PainSolution() {
             {ours.map((t) => (
               <li
                 key={t}
-                className="flex gap-3 text-[0.95rem] leading-snug text-blue-50"
+                className="flex gap-2 text-[0.95rem] leading-snug text-blue-50"
               >
-                <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-green-500/20 text-green-400">
+                <span className="grid size-5 shrink-0 place-items-center rounded-full bg-green-500/20 text-green-400">
                   <Check className="size-3.5" strokeWidth={3} />
                 </span>
                 {t}

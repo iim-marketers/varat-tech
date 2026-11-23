@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/accordion";
 import { site } from "@/lib/site";
 
-import { SubscribeButton, WhatsAppLink } from "./client-bits";
+import { BackToTop, SubscribeButton, WhatsAppLink } from "./client-bits";
 import { SectionHeading } from "./section-heading";
 
 function GuaranteeSeal() {
@@ -388,10 +388,13 @@ export function Footer() {
           </a>
         </div>
       </div>
-      <p className="mx-auto mt-10 max-w-6xl border-t border-white/10 pt-6 text-xs">
-        © 2026 {site.company} All rights reserved. Payments processed securely
-        by Razorpay.
-      </p>
+      <div className="mx-auto mt-10 flex max-w-6xl flex-col-reverse items-start gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-xs">
+          © 2026 {site.company} All rights reserved. Payments processed securely
+          by Razorpay.
+        </p>
+        <BackToTop className="shrink-0" />
+      </div>
     </footer>
   );
 }
