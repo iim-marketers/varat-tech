@@ -74,35 +74,50 @@ const extras = [
 
 function LockToggleDemo() {
   return (
-    <div aria-hidden className="mt-6 grid gap-2.5 rounded-2xl bg-white/6 p-3 ring-1 ring-white/10">
+    <div
+      aria-hidden
+      className="mt-6 grid gap-2.5 rounded-2xl bg-white/6 p-3 ring-1 ring-white/10"
+    >
       {[
         { name: "Vivo V22", sub: "EMI overdue · 3 days", locked: true },
         { name: "Realme C55", sub: "Paid on time", locked: false },
         { name: "OnePlus TV 43″", sub: "EMI due tomorrow", locked: false },
       ].map((d) => (
-        <div key={d.name} className="flex items-center gap-3 rounded-xl bg-white px-3 py-2.5 text-ink">
+        <div
+          key={d.name}
+          className="flex items-center gap-3 rounded-xl bg-white px-3 py-2.5 text-ink"
+        >
           <span
             className={cn(
               "grid size-9 place-items-center rounded-lg",
-              d.locked ? "bg-red-100 text-red-600" : "bg-green-100 text-green-600"
+              d.locked
+                ? "bg-red-100 text-red-600"
+                : "bg-green-100 text-green-600",
             )}
           >
             <LockKeyhole className="size-4" />
           </span>
           <div className="min-w-0 flex-1 leading-tight">
             <p className="truncate text-sm font-semibold">{d.name}</p>
-            <p className={cn("truncate text-xs", d.locked ? "text-red-600" : "text-muted-foreground")}>{d.sub}</p>
+            <p
+              className={cn(
+                "truncate text-xs",
+                d.locked ? "text-red-600" : "text-muted-foreground",
+              )}
+            >
+              {d.sub}
+            </p>
           </div>
           <span
             className={cn(
               "relative h-6 w-11 shrink-0 rounded-full transition",
-              d.locked ? "bg-ember" : "bg-ink/15"
+              d.locked ? "bg-ember" : "bg-ink/15",
             )}
           >
             <span
               className={cn(
                 "absolute top-1 size-4 rounded-full bg-white shadow",
-                d.locked ? "right-1" : "left-1"
+                d.locked ? "right-1" : "left-1",
               )}
             />
           </span>
@@ -114,21 +129,31 @@ function LockToggleDemo() {
 
 export function Features() {
   return (
-    <section className="px-4 py-20 sm:py-24">
-      <SectionHeading eyebrow="Zero loopholes" title="6 anti-default features that keep phones locked">
-        Every trick defaulters use — SIM swaps, Wi-Fi off, factory resets — is already covered.
+    <section className="px-4 py-16 sm:py-20">
+      <SectionHeading
+        eyebrow="Zero loopholes"
+        title="6 anti-default features that keep phones locked"
+      >
+        Every trick defaulters use — SIM swaps, Wi-Fi off, factory resets — is
+        already covered.
       </SectionHeading>
 
       <div className="mx-auto mt-12 grid max-w-6xl gap-4 md:grid-cols-2 lg:grid-cols-3">
         <article className="relative overflow-hidden rounded-3xl bg-ink p-6 text-white md:row-span-2 sm:p-7">
-          <div aria-hidden className="absolute -top-20 -right-20 size-56 rounded-full bg-ember/30 blur-3xl" />
+          <div
+            aria-hidden
+            className="absolute -top-20 -right-20 size-56 rounded-full bg-ember/30 blur-3xl"
+          />
           <span className="relative grid size-12 place-items-center rounded-2xl bg-ember/20 text-orange-300">
             <LockKeyhole className="size-6" />
           </span>
-          <h3 className="relative mt-5 text-2xl font-bold">1-Click Remote Lock</h3>
+          <h3 className="relative mt-5 text-2xl font-bold">
+            1-Click Remote Lock
+          </h3>
           <p className="relative mt-2 leading-relaxed text-blue-100/80">
-            Lock or unlock any customer&apos;s phone from the app or the web panel. Turn on auto-lock and
-            phones lock themselves when an EMI goes overdue.
+            Lock or unlock any customer&apos;s phone from the app or the web
+            panel. Turn on auto-lock and phones lock themselves when an EMI goes
+            overdue.
           </p>
           <LockToggleDemo />
         </article>
@@ -140,15 +165,30 @@ export function Features() {
               key={title}
               className={cn(
                 "rounded-3xl bg-surface p-6 ring-1 ring-ink/5 sm:p-7",
-                wide && "md:col-span-2 lg:col-span-3 sm:flex sm:items-center sm:gap-6"
+                wide &&
+                  "md:col-span-2 lg:col-span-3 sm:flex sm:items-center sm:gap-6",
               )}
             >
-              <span className={cn("grid size-12 shrink-0 place-items-center rounded-2xl", tone)}>
+              <span
+                className={cn(
+                  "grid size-12 shrink-0 place-items-center rounded-2xl",
+                  tone,
+                )}
+              >
                 <Icon className="size-6" />
               </span>
               <div>
-                <h3 className={cn("mt-5 text-xl font-bold text-ink", wide && "sm:mt-0")}>{title}</h3>
-                <p className="mt-2 leading-relaxed text-muted-foreground">{body}</p>
+                <h3
+                  className={cn(
+                    "mt-5 text-xl font-bold text-ink",
+                    wide && "sm:mt-0",
+                  )}
+                >
+                  {title}
+                </h3>
+                <p className="mt-2 leading-relaxed text-muted-foreground">
+                  {body}
+                </p>
               </div>
             </article>
           );
@@ -156,7 +196,9 @@ export function Features() {
       </div>
 
       <div className="mx-auto mt-10 max-w-5xl text-center">
-        <p className="text-sm font-semibold text-ink">Plus everything else in the Device Control tab</p>
+        <p className="text-sm font-semibold text-ink">
+          Plus everything else in the Device Control tab
+        </p>
         <ul className="mt-4 flex flex-wrap justify-center gap-2">
           {extras.map(({ icon: Icon, label }) => (
             <li

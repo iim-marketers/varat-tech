@@ -1,4 +1,10 @@
-import { Check, LayoutDashboard, QrCode, ShieldAlert, Smartphone } from "lucide-react";
+import {
+  Check,
+  LayoutDashboard,
+  QrCode,
+  ShieldAlert,
+  Smartphone,
+} from "lucide-react";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -53,10 +59,18 @@ const tabs = [
   },
 ] as const;
 
-function Points({ title, points }: { title: string; points: readonly string[] }) {
+function Points({
+  title,
+  points,
+}: {
+  title: string;
+  points: readonly string[];
+}) {
   return (
     <div className="lg:pt-6">
-      <h3 className="text-2xl leading-tight font-bold text-white sm:text-3xl">{title}</h3>
+      <h3 className="text-2xl leading-tight font-bold text-white sm:text-3xl">
+        {title}
+      </h3>
       <ul className="mt-6 grid gap-3.5">
         {points.map((p) => (
           <li key={p} className="flex gap-3 text-blue-100/85">
@@ -75,10 +89,17 @@ const phoneSizes = "(min-width: 1024px) 220px, 30vw";
 
 export function Showcase() {
   return (
-    <section className="relative overflow-hidden bg-ink px-4 py-20 sm:py-24">
-      <div aria-hidden className="bg-grid absolute inset-0 [mask-image:radial-gradient(60%_50%_at_50%_30%,black,transparent)]" />
+    <section className="relative overflow-hidden bg-ink px-4 py-16 sm:py-20">
+      <div
+        aria-hidden
+        className="bg-grid absolute inset-0 [mask-image:radial-gradient(60%_50%_at_50%_30%,black,transparent)]"
+      />
       <div className="relative">
-        <SectionHeading dark eyebrow="Real screens, not mock-ups" title="What you get the moment you subscribe">
+        <SectionHeading
+          dark
+          eyebrow="Real screens, not mock-ups"
+          title="What you get the moment you subscribe"
+        >
           Screenshots straight from the Master Panel and apps you’ll log in to.
         </SectionHeading>
 
@@ -89,7 +110,7 @@ export function Showcase() {
                 <TabsTrigger
                   key={id}
                   value={id}
-                  className="h-10 rounded-xl px-4 text-sm text-blue-100/70 hover:text-white data-active:bg-white data-active:text-ink"
+                  className="h-10 rounded-xl px-4 text-sm text-blue-100/70 hover:text-white data-active:bg-white data-active:text-ink data-active:hover:text-ink"
                 >
                   <Icon /> {label}
                 </TabsTrigger>
@@ -97,7 +118,10 @@ export function Showcase() {
             </TabsList>
           </div>
 
-          <TabsContent value="panel" className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.6fr]">
+          <TabsContent
+            value="panel"
+            className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.6fr]"
+          >
             <Points title={tabs[0].title} points={tabs[0].points} />
             <BrowserFrame
               src="/screens/web-panel.webp"
@@ -108,30 +132,67 @@ export function Showcase() {
             />
           </TabsContent>
 
-          <TabsContent value="app" className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.6fr]">
+          <TabsContent
+            value="app"
+            className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.6fr]"
+          >
             <Points title={tabs[1].title} points={tabs[1].points} />
             <div className="grid grid-cols-3 gap-3 sm:gap-5">
-              <PhoneFrame src="/screens/dashboard.webp" alt="Retailer app dashboard with device overview" sizes={phoneSizes} />
-              <PhoneFrame src="/screens/dashboard-menu.webp" alt="Retailer app menu: wireless activation, all loans, customers, payment requests" sizes={phoneSizes} className="lg:translate-y-8" />
-              <PhoneFrame src="/screens/login.webp" alt="Retailer app login screen" sizes={phoneSizes} />
+              <PhoneFrame
+                src="/screens/dashboard.webp"
+                alt="Retailer app dashboard with device overview"
+                sizes={phoneSizes}
+              />
+              <PhoneFrame
+                src="/screens/dashboard-menu.webp"
+                alt="Retailer app menu: wireless activation, all loans, customers, payment requests"
+                sizes={phoneSizes}
+                className="lg:translate-y-8"
+              />
+              <PhoneFrame
+                src="/screens/login.webp"
+                alt="Retailer app login screen"
+                sizes={phoneSizes}
+              />
             </div>
           </TabsContent>
 
-          <TabsContent value="controls" className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.6fr]">
+          <TabsContent
+            value="controls"
+            className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.6fr]"
+          >
             <Points title={tabs[2].title} points={tabs[2].points} />
             <div className="grid grid-cols-3 gap-3 sm:gap-5">
-              <PhoneFrame src="/screens/device-control.webp" alt="Device control: device lock, offline unlock key, camera and USB controls" sizes={phoneSizes} />
-              <PhoneFrame src="/screens/location.webp" alt="Location tracking, SIM details, social media block and system locks" sizes={phoneSizes} className="lg:translate-y-8" />
-              <PhoneFrame src="/screens/command-log.webp" alt="Command history showing executed lock, unlock and ping commands" sizes={phoneSizes} />
+              <PhoneFrame
+                src="/screens/device-control.webp"
+                alt="Device control: device lock, offline unlock key, camera and USB controls"
+                sizes={phoneSizes}
+              />
+              <PhoneFrame
+                src="/screens/location.webp"
+                alt="Location tracking, SIM details, social media block and system locks"
+                sizes={phoneSizes}
+                className="lg:translate-y-8"
+              />
+              <PhoneFrame
+                src="/screens/command-log.webp"
+                alt="Command history showing executed lock, unlock and ping commands"
+                sizes={phoneSizes}
+              />
             </div>
           </TabsContent>
 
-          <TabsContent value="customer" className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.6fr]">
+          <TabsContent
+            value="customer"
+            className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.6fr]"
+          >
             <Points title={tabs[3].title} points={tabs[3].points} />
             <div className="mx-auto grid w-full max-w-xl grid-cols-2 gap-4 sm:gap-8">
               <div>
                 <QrLockScreen />
-                <p className="mt-3 text-center text-xs text-blue-100/60">Lock screen (illustration)</p>
+                <p className="mt-3 text-center text-xs text-blue-100/60">
+                  Lock screen (illustration)
+                </p>
               </div>
               <div className="lg:translate-y-8">
                 <PhoneFrame
@@ -141,7 +202,9 @@ export function Showcase() {
                   height={1264}
                   sizes={phoneSizes}
                 />
-                <p className="mt-3 text-center text-xs text-blue-100/60">Customer loan ledger</p>
+                <p className="mt-3 text-center text-xs text-blue-100/60">
+                  Customer loan ledger
+                </p>
               </div>
             </div>
           </TabsContent>

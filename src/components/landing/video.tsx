@@ -12,14 +12,20 @@ export function VideoGuide() {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <section className="bg-surface px-4 py-20 sm:py-24">
-      <SectionHeading eyebrow="See it before you buy" title="Set up and lock a phone in 60 seconds">
-        Watch the exact steps — install the app, enrol a customer&apos;s phone, and lock it remotely.
-        No demo call needed.
+    <section className="bg-surface px-4 py-16 sm:py-20">
+      <SectionHeading
+        eyebrow="See it before you buy"
+        title="Set up and lock a phone in 60 seconds"
+      >
+        Watch the exact steps — install the app, enrol a customer&apos;s phone,
+        and lock it remotely. No demo call needed.
       </SectionHeading>
 
       <div className="relative mx-auto mt-10 max-w-4xl">
-        <div aria-hidden className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-brand/25 via-transparent to-ember/25 blur-xl" />
+        <div
+          aria-hidden
+          className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-brand/25 via-transparent to-ember/25 blur-xl"
+        />
         <div className="relative aspect-video overflow-hidden rounded-3xl bg-ink shadow-2xl ring-1 ring-ink/10">
           {playing ? (
             <iframe
