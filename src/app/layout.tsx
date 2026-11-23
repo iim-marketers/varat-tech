@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import Script from "next/script";
 
-import { site } from "@/lib/site";
+import { ogImage, seo, site } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
@@ -15,22 +15,59 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: "MDM Locker — Unlimited EMI Phone & TV Locker at ₹999/month",
-  description:
-    "Stop EMI defaulters. Unlimited Android phone and Smart TV locker keys for a flat ₹999/month — offline auto-lock, FRP block, live GPS and UPI QR unlock. Official app on Google Play. 7-day money-back guarantee.",
+  title: {
+    default: seo.title,
+    template: `%s | ${site.product}`,
+  },
+  description: seo.description,
+  keywords: [...seo.keywords],
   applicationName: site.product,
+  authors: [{ name: site.company, url: site.url }],
+  creator: site.company,
+  publisher: site.company,
+  category: "business",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  formatDetection: { telephone: false, address: false, email: false },
   openGraph: {
-    title: "Unlimited EMI Phone & TV Locker — ₹999/month",
-    description:
-      "Why pay ₹200 per key? Lock unlimited phones and Smart TVs for a flat ₹999/month. 7-day money-back guarantee.",
+    title: seo.shortTitle,
+    description: seo.socialDescription,
+    url: site.landingPath,
     siteName: site.product,
     locale: "en_IN",
     type: "website",
+    images: [ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seo.shortTitle,
+    description: seo.socialDescription,
+    images: [ogImage],
+  },
+  appleWebApp: {
+    title: site.product,
+    statusBarStyle: "black-translucent",
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : undefined,
   },
 };
 
 export const viewport: Viewport = {
   themeColor: "#081329",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
