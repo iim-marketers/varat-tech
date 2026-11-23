@@ -273,7 +273,7 @@ export function Pricing() {
   );
 }
 
-const faqs = [
+export const faqs = [
   {
     q: "Are the keys really unlimited?",
     a: `Yes. One flat ₹${site.price}/month covers unlimited Android phone and Android Smart TV locks. There are no per-device key charges, however many phones you sell.`,
