@@ -12,7 +12,6 @@ function Finder({ x, y }: { x: number; y: number }) {
   );
 }
 
-/** Deterministic, decorative QR-style grid (not a scannable code). */
 function QrGlyph({ size = 21 }: { size?: number }) {
   const cells: React.ReactNode[] = [];
   const finder = (x: number, y: number) =>

@@ -90,10 +90,9 @@ export function Header() {
         <SubscribeButton
           source="header"
           size="default"
-          className="ml-auto md:ml-3"
+          className="ml-3 hidden md:inline-flex"
         >
-          <span className="sm:hidden">Subscribe ₹{site.price}</span>
-          <span className="hidden sm:inline">Subscribe — ₹{site.price}/mo</span>
+          Subscribe — ₹{site.price}/mo
         </SubscribeButton>
       </div>
     </header>
@@ -116,7 +115,7 @@ export function Hero() {
         className="absolute bottom-[-30%] left-[-15%] size-[520px] rounded-full bg-ember/15 blur-[120px]"
       />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pt-10 pb-28 lg:grid-cols-[1.08fr_0.92fr] lg:w-full lg:flex-1 lg:gap-8 lg:pt-0 lg:pb-32">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pt-4 md:pt-10 pb-28 lg:grid-cols-[1.08fr_0.92fr] lg:w-full lg:flex-1 lg:gap-8 lg:pt-0 lg:pb-32">
         <div>
           <h1 className="mt-5 text-[2.35rem] leading-[1.08] font-bold sm:text-5xl lg:mt-4 lg:text-[clamp(2.75rem,7svh,3.6rem)] lg:leading-[1.05]">
             Stop EMI defaulters.{" "}

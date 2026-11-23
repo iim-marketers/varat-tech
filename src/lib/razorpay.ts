@@ -50,6 +50,5 @@ export function loadRazorpay() {
   return loader;
 }
 
-/** Public key id — safe to expose. The secret stays server-side (RAZORPAY_KEY_SECRET). */
 export const RAZORPAY_KEY_ID =
   process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ?? "rzp_live_U1EGmjUF3yCsMD";

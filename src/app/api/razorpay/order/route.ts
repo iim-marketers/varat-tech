@@ -3,11 +3,7 @@ import { site } from "@/lib/site";
 
 const clip = (v: unknown) => (typeof v === "string" ? v.trim().slice(0, 120) : "");
 
-/**
- * Creates a Razorpay order so the payment can be signature-verified.
- * Returns 501 when RAZORPAY_KEY_SECRET isn't set; the client then falls back
- * to a plain amount-based checkout.
- */
+// 501 without RAZORPAY_KEY_SECRET: the client falls back to a plain amount-based checkout.
 export async function POST(request: Request) {
   const secret = process.env.RAZORPAY_KEY_SECRET;
   if (!secret) return Response.json({ error: "not_configured" }, { status: 501 });

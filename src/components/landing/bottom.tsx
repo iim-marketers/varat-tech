@@ -318,7 +318,7 @@ export function Faq() {
             value={q}
             className="rounded-2xl bg-surface px-5 ring-1 ring-ink/5 not-last:border-b-0"
           >
-            <AccordionTrigger className="py-5 font-heading text-base font-semibold text-ink hover:no-underline sm:text-lg">
+            <AccordionTrigger className="pt-5 font-heading text-base font-semibold text-ink hover:no-underline sm:text-lg">
               {q}
             </AccordionTrigger>
             <AccordionContent className="pb-5 text-[0.95rem] leading-relaxed text-muted-foreground">

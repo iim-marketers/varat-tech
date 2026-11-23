@@ -85,7 +85,6 @@ export function CheckoutProvider({ children }: { children: React.ReactNode }) {
 
     try {
       await loadRazorpay();
-      // Server-side order (enables signature verification) when the secret is configured.
       const orderRes = await fetch("/api/razorpay/order/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
