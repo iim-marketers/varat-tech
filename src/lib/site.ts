@@ -1,7 +1,11 @@
+const siteUrl = new URL(
+  process.env.NEXT_PUBLIC_SITE_URL || "https://home.mdmlocker.in",
+).origin;
+
 export const site = {
   product: "MDM Locker",
   company: "Varat Tech Global Pvt. Ltd.",
-  url: "https://mdmlocker.in",
+  url: siteUrl,
   price: 999,
   amountPaise: 99_900,
   currency: "INR",
